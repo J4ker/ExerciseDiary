@@ -5,7 +5,10 @@ COPY . /src
 RUN cd /src/cmd/ExerciseDiary/ && CGO_ENABLED=0 go build -o /ExerciseDiary .
 
 
-FROM scratch
+FROM alpine:latest
+
+RUN apk add --no-cache curl
+
 
 WORKDIR /data/ExerciseDiary
 WORKDIR /app
